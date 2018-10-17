@@ -16,24 +16,32 @@ def start_game():
     wrong_attempts = 0
     attempts_left = 10
     word = []
+
     for i in user_answer:
         word.append("_")
+
     while user_answer != word:
-        letter = input(f"Enter your letter: {user_answer}")
+        letter = input(f"Enter your letter: ")
+
         if len(letter) > 1:
             print("that's more than a letter! try again.")
+
         if letter in user_answer:
             for ind in range(0, len(user_answer)):
                 if user_answer[ind] == letter:
                     word[ind] = letter
             print(word)
+
         else:
             wrong_attempts += 1
             print(f"oops, there is no such letter in the word! You have {attempts_left - wrong_attempts}"
                   f" attempts left.")
+            print(word)
+
         if wrong_attempts >= 10:
-            print(f"Game over. it was {str}")
+            print(f"Game over. it was {given_answer}")
             break
+
     if user_answer == word:
         print("You won!")
 
